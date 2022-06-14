@@ -128,7 +128,7 @@ const app = {
             transform: 'rotate(0)',
             transform: 'rotate(360deg)'
         }], {
-            duration: 5000, // thời gian quay CD
+            duration: 8000, // thời gian quay CD
             iterations: Infinity,
         })
         cdThumbAnimate.pause();
