@@ -47,7 +47,7 @@ const app = {
             name: 'Play Date',
             singer: 'Melanie Martinez',
             path: './assest/music/Play Date.mp3',
-            image: 'https://cdns-images.dzcdn.net/images/cover/0debfac5419ff21175ffb8330528e7d8/350x350.jpg'
+            image: './assest/img/playdate.jpg'
         },
         {
             id: '5',
