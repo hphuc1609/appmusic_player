@@ -150,7 +150,7 @@ html {
 }
 
 .cd-inner {
-    width: 200px;
+    width: 180px;
     margin: auto;
     border: 10px solid rgba(0, 0, 0, 0.3);
     border-radius: 50%;
@@ -168,7 +168,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top: 25px;
+    margin-top: 20px;
     cursor: pointer;
 }
 
@@ -193,15 +193,15 @@ html {
     opacity: 1;
 }
 
-.controls .btn-repeat, 
+.controls .btn-repeat,
 .controls .btn-random {
     opacity: 0.7;
 }
 
 .controls .btn-toggle-play {
-    width: 56px;
-    height: 56px;
-    font-size: 2.7rem;
+    width: 53px;
+    height: 53px;
+    font-size: 2.5rem;
     color: #fff;
     background-color: var(--primary-color);
     border-radius: 50%;
@@ -246,12 +246,15 @@ html {
 /* Playlist */
 .playlist {
     width: 480px;
-    margin-top: 448px;
+    margin-top: 420px;
     padding: 12px;
     background-color: var(--black-color);
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .playlist-number {
+    width: 16px;
     color: var(--white-color);
     font-size: 1.3rem;
     font-weight: 400;
@@ -356,4 +359,14 @@ html {
 
 .playlist-option .icon-option {
     margin-right: 5px;
+}
+
+.footer {
+    height: 30px;
+    font-size: 1.4rem;
+    color: #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.1);
 }

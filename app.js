@@ -14,7 +14,6 @@ const randomBtn = $('.btn-random');
 const repeatBtn = $('.btn-repeat');
 const progress = $('#progress');
 const audio = $('#audio');
-const time = audio.duration;
 
 const app = {
     currentIndex: 0,
@@ -23,56 +22,77 @@ const app = {
     isRepeat: false,
 
     songs: [{
-            number: '01',
+            id: '1',
             name: 'Butter',
             singer: 'BTS',
             path: './assest/music/Butter.mp3',
             image: './assest/img/butter-cover.jpg'
         },
         {
-            number: '02',
+            id: '2',
             name: 'Dynamite',
             singer: 'BTS',
             path: './assest/music/Dynamite.mp3',
             image: './assest/img/Dynamite.jpg'
         },
         {
-            number: '03',
+            id: '3',
             name: 'Permission To Dance',
             singer: 'BTS',
             path: './assest/music/Permission to Dance.mp3',
             image: './assest/img/Permission_to_Dance.jpg'
         },
         {
-            number: '04',
+            id: '4',
+            name: 'Play Date',
+            singer: 'Melanie Martinez',
+            path: './assest/music/Play Date.mp3',
+            image: 'https://cdns-images.dzcdn.net/images/cover/0debfac5419ff21175ffb8330528e7d8/350x350.jpg'
+        },
+        {
+            id: '5',
+            name: `OMG What's Happening`,
+            singer: 'Ava Max',
+            path: './assest/music/OMG Whats Happening.mp3',
+            image: 'https://upload.wikimedia.org/wikipedia/en/8/8c/Ava_Max_-_OMG_What%27s_Happening.png'
+        },
+        {
+            id: '6',
+            name: 'Sweet but Psycho',
+            singer: 'Ava Max',
+            path: './assest/music/Sweet but Psycho.mp3',
+            image: 'https://upload.wikimedia.org/wikipedia/vi/9/96/Ava_Max_%E2%80%93_Sweet_but_Psycho.png'
+        },
+        {
+            id: '7',
             name: 'Eurphoria',
             singer: 'Jungkook (BTS)',
             path: './assest/music/Euphoria.mp3',
             image: './assest/img/love_yourself.jpg'
         },
         {
-            number: '05',
+            id: '8',
             name: 'Still With You',
             singer: 'Jungkook (BTS)',
             path: './assest/music/Still With You.mp3',
             image: 'https://btstv.files.wordpress.com/2020/06/artworks-7nmc0l048kdmtv7q-asok7a-t500x500.jpg'
         },
         {
-            number: '06',
+            id: '9',
             name: 'Shivers',
             singer: 'Ed Sheeran (feat. Jessi & SUNMI)',
             path: './assest/music/Shivers.mp3',
             image: './assest/img/shivers.jpg'
         },
         {
-            number: '07',
+            id: '10',
             name: 'Hero',
             singer: 'Cash Cash (feat. Christina Perri)',
             path: './assest/music/Hero.mp3',
             image: 'https://www.cevirce.com/en/translate/wp-content/uploads/2021/05/cash-cash-feat.-christina-perri-hero-lyrics.jpg'
         },
         {
-            number: '08',
+            id: '11',
             name: 'Epiphany ',
             singer: 'Jin (BTS)',
             path: './assest/music/Epiphany.mp3',
@@ -84,7 +104,7 @@ const app = {
         const html = this.songs.map((song, index) => {
             return `
             <div class="playlist-song ${index === this.currentIndex ? 'active' : ''}" data-index= ${index}>
-                <h2 class="playlist-number">${song.number}.</h2>
+                <h2 class="playlist-number">${song.id}.</h2>
                 <img class="playlist-img" src="${song.image}" alt="">
                 <div class="playlist-body">
                     <h3 class="playlist-title">${song.name}</h3>
@@ -114,6 +134,7 @@ const app = {
         // Xử lý phóng to / thu nhỏ CD khi scroll playlist
         const cdMusic = $('.cd-inner');
         const CdWidth = cdMusic.offsetWidth;
+        const controls = $('.controls');
 
         document.onscroll = function () {
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -121,6 +142,13 @@ const app = {
 
             cdMusic.style.width = newCdWidth > 0 ? newCdWidth + 'px' : 0;
             cdMusic.style.opacity = newCdWidth / CdWidth;
+            if (newCdWidth < 0) {
+                controls.style.marginTop = 0;
+                controls.style.transition = 'all 0.3s';
+            } else {
+                controls.style.marginTop = '20px';
+                controls.style.transition = 'none';
+            }
         }
 
         // Xử lý CD khi quay / dừng
@@ -128,7 +156,7 @@ const app = {
             transform: 'rotate(0)',
             transform: 'rotate(360deg)'
         }], {
-            duration: 8000, // thời gian quay CD
+            duration: 10000, // thời gian quay CD
             iterations: Infinity,
         })
         cdThumbAnimate.pause();
@@ -147,7 +175,7 @@ const app = {
             if (app.isPlaying) {
                 progress.value = progressPercent;
             } else {
-                progress.value = 0;
+                progress.value.onchange = 0;
             }
             // Tải dữ liệu
             audio.onloadeddata = function () {
