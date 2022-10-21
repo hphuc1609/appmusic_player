@@ -1,0 +1,392 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  line-height: 1.5;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: url("https://img4.thuthuatphanmem.vn/uploads/2020/12/26/hinh-nen-background-gradient_052415560.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+/* Root */
+:root {
+  --primary-color: #e33a42;
+  --text-color: #999;
+  --black-color: #1e1e1e;
+  --white-color: #fff;
+  --bg-linear-gradient: linear-gradient(to right, #c22828, #e33a42, #d74053);
+}
+
+/* Keyframes */
+@keyframes soundBeats {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.05);
+  }
+
+  45% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.05);
+  }
+
+  95% {
+    transform: scale(1);
+  }
+}
+
+@keyframes showOut {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+
+  to {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+/* Main */
+.player {
+  max-width: 480px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.player.playing .icon-pause {
+  display: block;
+}
+
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  background-image: url("https://www.worksoft.com/hubfs/_worksoft2020/backgrounds/hero-banner-wave-2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--black-color);
+  padding: 0 20px 14px;
+  border-bottom: 1px solid var(--text-color);
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.header-icon {
+  color: var(--primary-color);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.header-heading {
+  text-align: center;
+}
+
+.header-playing {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.header-title {
+  font-size: 3rem;
+  color: var(--white-color);
+}
+
+.header-singer {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f0f0f0;
+}
+
+/* CD */
+.cd-music {
+  max-width: 480px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.cd-inner.active {
+  animation: soundBeats 1s linear infinite;
+}
+
+.cd-inner {
+  width: 180px;
+  margin: auto;
+  border: 10px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  box-shadow: 0 0 20px rgba(275, 275, 275, 0.1);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.controls .btn {
+  color: var(--primary-color);
+  font-size: 2rem;
+  padding: 0 5px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.controls .btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn .icon-btn {
+  width: 20px;
+  height: 20px;
+}
+
+.controls .btn.active {
+  opacity: 1;
+}
+
+.controls .btn-repeat,
+.controls .btn-random {
+  opacity: 0.7;
+}
+
+.controls .btn-toggle-play {
+  width: 53px;
+  height: 53px;
+  font-size: 2.5rem;
+  color: #fff;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls .icon-pause {
+  display: none;
+}
+
+.progress {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin-top: 20px;
+}
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.time-song {
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  color: #f0f0f0;
+}
+
+/* Playlist */
+.playlist {
+  width: 480px;
+  margin-top: 420px;
+  padding: 12px;
+  background-color: var(--black-color);
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.playlist-number {
+  width: 16px;
+  color: var(--white-color);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+.playlist-song:first-child {
+  margin: 0;
+}
+
+.playlist-song {
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.playlist-song.active {
+  background: var(--bg-linear-gradient);
+}
+
+.playlist-song.active:hover {
+  opacity: 1;
+}
+
+.playlist-song:hover {
+  opacity: 0.8;
+}
+
+.playlist-song.active .playlist-title,
+.playlist-song.active .playlist-singer,
+.playlist-song.active .playlist-option,
+.playlist-song.active .playlist-number {
+  color: #f0f0f0;
+}
+
+.playlist-song.active .playlist-img {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.playlist-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.playlist-body {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.playlist-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.playlist-singer {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.playlist-option {
+  font-size: 2rem;
+  color: var(--text-color);
+  position: relative;
+}
+
+.playlist-option.active .playlist-option-item {
+  display: block;
+}
+
+.playlist-option-item::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: 0;
+  border-width: 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #222 transparent;
+}
+
+.playlist-option-item {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  min-width: 100px;
+  font-size: 1.2rem;
+  display: none;
+  padding: 5px 0;
+  text-align: center;
+  color: #fff;
+  background: #222;
+  border-radius: 3px;
+  animation: showOut linear 0.2s;
+}
+
+.playlist-option .icon-option {
+  margin-right: 5px;
+}
+
+.footer {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.footer-copyright,
+.footer-author {
+  font-size: 1.4rem;
+  color: #e8e8e8;
+}
+
+.footer-author {
+  margin-left: 10px;
+}
+
+.footer-icon {
+  color: var(--primary-color);
+}

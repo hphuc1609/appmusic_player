@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player MP3</title>
+    <link rel="shortcut icon" href="./assest/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assest/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="player">
+        <div class="dashboard">
+            <div class="header">
+                <i class="header-icon fa-solid fa-chevron-down"></i>
+                <div class="header-heading">
+                    <h4 class="header-playing">Now Playing:</h4>
+                    <h1 class="header-title">Sting 57th & 9th</h1>
+                    <h2 class="header-singer">...</h2>
+                </div>
+                <i class="header-icon fa-solid fa-plus"></i>
+            </div>
+            <!-- CD -->
+            <div class="cd-music">
+                <div class="cd-inner">
+                    <div class="cd-thumb"
+                        style="background-image: url('https://upload.wikimedia.org/wikipedia/vi/d/db/BTS_-_Butter.png');">
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="btn btn-repeat">
+                    <i class="icon-btn fa-solid fa-arrow-rotate-right"></i>
+                </div>
+                <div class="btn btn-prev">
+                    <i class="icon-btn fa-solid fa-backward-step"></i>
+                </div>
+                <div class="btn-toggle-play">
+                    <i class="icon-pause fa-solid fa-pause"></i>
+                    <i class="icon-play fa-solid fa-play"></i>
+                </div>
+                <div class="btn btn-next">
+                    <i class="icon-btn fa-solid fa-forward-step"></i>
+                </div>
+                <div class="btn btn-random">
+                    <i class="icon-btn fa-solid fa-shuffle"></i>
+                </div>
+            </div>
+            <audio id="audio" src=""></audio>
+            <input type="range" id="progress" class="progress" value="0" step="1" min="0" max="100">
+            <div class="time-song">
+                <span class="current"></span>
+                <span class="duration"></span>
+            </div>
+        </div>
+        <!-- Playlist -->
+        <div class="playlist">
+        </div>
+    </div>
+    <footer class="footer">
+        <span class="footer-copyright">© 2022</span>
+        <span class="footer-author">Make
+            <i class="fa-solid fa-heart footer-icon"></i>
+            Hoang Phuc</span>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
